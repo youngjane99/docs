@@ -50,7 +50,7 @@ For a full breakdown of what branches and repos are used for each site, see the 
 ## Publishing a new topic
 The author of the doc must complete the following steps:
 
-1. Clone [the docs repo](https://github.com/OpenLiberty/docs) and create your feature branch off the default `vNext` branch. Include the number of the Git issue for the doc in the name of your branch (for example, `1234-concept-topic`). Do _all_ your writing and editing in this branch.
+1. Clone [the docs repo](https://github.com/OpenLiberty/docs) and create your feature branch off the default `vNext` branch. Make sure to create your working branch off of the main docs repository rather than a fork of that repository. Include the number of the Git issue for the doc in the name of your branch (for example, `1234-concept-topic`). Do _all_ your writing and editing in this branch.
 
 2. Create your doc by using [Asciidoc](https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/) markup. Use an editor such as [Atom](https://atom.io/) or [VSCode with the Asciidoc plug-in](https://marketplace.visualstudio.com/items?itemName=joaompinto.asciidoctor-vscode).
 
