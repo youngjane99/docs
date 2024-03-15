@@ -420,7 +420,31 @@ If the `myDB` value is configured as the default data source, the JNDI lookup ca
 DataSource myDB = InitialContext.doLookup("java:comp/DefaultDataSource");
 ----
 
+If you want to configure multiple data sources to use different version of JDBC driver libraries, then configure different libraries and configure data source to use right version of library. For example:
 
+<library id="jdbcLibv7">
+    <fileset dir="jdbcv7" includes="*.jar"/>
+</library>
+
+<library id="jdbcLibv8">
+    <fileset dir="jdbcv8" includes="*.jar"/>
+</library>
+
+<dataSource jndiName="jdbc/myDBv7">
+    <jdbcDriver libraryRef="jdbcLibv7"/>
+    <properties serverName="localhost" portNumber="5432"
+                databaseName="myDBv7"
+                user="exampleUser" password="examplePassword"/>
+</dataSource>
+
+<dataSource jndiName="jdbc/myDBv8">
+    <jdbcDriver libraryRef="jdbcLibv8"/>
+    <properties serverName="localhost" portNumber="5433"
+                databaseName="myDBv8"
+                user="exampleUser" password="examplePassword"/>
+</dataSource>
+
+If multiple data sources use the same libraryRef, they'll share an instance of the library's class loader.
 
 == See also
 
