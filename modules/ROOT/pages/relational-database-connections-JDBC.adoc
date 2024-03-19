@@ -170,6 +170,30 @@ If you enable any Java EE or Jakarta EE features in Open Liberty, you can config
             user="exampleUser" password="examplePassword"/>
 </dataSource>
 ----
+If you want to configure multiple data sources and want them use different JDBC driver library, then you can configure libraries and give libraryRef with proper library's id, for example:
+
+[source,xml]
+----
+<library id="jdbcLibv8">
+    <fileset dir="jdbcv8" includes="*.jar"/>
+</library>
+<dataSource id="myDSv8">
+  <jdbcDriver libraryRef="jdbcLibv8"/>
+  <properties serverName="hostv8" portNumber="5432"
+            databaseName="myDBv8"
+            user="exampleUser" password="examplePassword"/>
+</dataSource>
+
+<library id="jdbcLibv10">
+    <fileset dir="jdbcv10" includes="*.jar"/>
+</library>
+<dataSource id="myDSv10">
+  <jdbcDriver libraryRef="jdbcLibv10"/>
+  <properties serverName="hostv10" portNumber="5432"
+            databaseName="myDBv10"
+            user="exampleUser" password="examplePassword"/>
+</dataSource>
+----
 
 [#examples]
 == Common data source configuration examples
